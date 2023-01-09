@@ -13,6 +13,8 @@ const navbarShoppingCart = document.querySelector(".navbar-shopping-cart");
 const shoppingCart = document.querySelector(".product-detail");
 navbarShoppingCart.addEventListener("click", toggleShoppingCart);
 
+const cardsContainer = document.querySelector(".cards-container");
+
 // Functions
 function toggleDesktopMenu() {
   const isShoppingCartClosed = shoppingCart.classList.contains("inactive");
@@ -38,3 +40,58 @@ function toggleShoppingCart() {
   }
   shoppingCart.classList.toggle("inactive");
 }
+
+const productList = makeRandomProduct();
+
+function makeRandomProduct() {
+  const products = [];
+  for (let index = 0; index < 20; index++) {
+    products.push({
+      name: "Item" + index,
+      price: Math.floor(Math.random() * 1000) + 1,
+      image:
+        "https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    });
+  }
+  return products;
+}
+
+function renderProducts(productList) {
+  for (const product of productList) {
+    const productCard = document.createElement("div");
+    productCard.classList.add("product-card");
+
+    const productImage = document.createElement("img");
+    productImage.src = product.image;
+
+    const productInfo = document.createElement("div");
+    productInfo.classList.add("product-info");
+
+    const productInfoDiv = document.createElement("div");
+
+    const productPrice = document.createElement("p");
+    productPrice.textContent = "$" + product.price;
+
+    const productName = document.createElement("p");
+    productName.textContent = product.name;
+
+    productInfoDiv.appendChild(productName);
+    productInfoDiv.appendChild(productPrice);
+
+    const productAddToCart = document.createElement("figure");
+    const productAddToCartImage = document.createElement("img");
+    productAddToCartImage.src = "./icons/bt_add_to_cart.svg";
+
+    productAddToCart.appendChild(productAddToCartImage);
+
+    productInfo.appendChild(productInfoDiv);
+    productInfo.appendChild(productAddToCart);
+
+    productCard.appendChild(productImage);
+    productCard.appendChild(productInfo);
+
+    cardsContainer.appendChild(productCard);
+  }
+}
+
+renderProducts(productList);
