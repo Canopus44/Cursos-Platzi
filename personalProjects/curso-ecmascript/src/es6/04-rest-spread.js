@@ -27,3 +27,24 @@ function sum(num, ...values) {
 }
 
 sum(1, 1, 2, 3);
+
+// Playground: Combina objetos JSON con el Spread Operator
+let json1 = {
+  name: "Mr. Michi",
+  food: "Pescado",
+};
+
+let json2 = {
+  age: 12,
+  color: "Blanco",
+};
+
+export function solution(
+  json1 = { name: "Mr. Michi", food: "Pescado" },
+  json2 = { age: 12, color: "Blanco" }
+) {
+  let combinedJson = { ...json1, ...json2 };
+  return combinedJson;
+}
+
+console.log(solution(json1, json2));
