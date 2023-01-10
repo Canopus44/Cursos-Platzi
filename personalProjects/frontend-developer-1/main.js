@@ -10,7 +10,7 @@ burgerMenu.addEventListener("click", toggleMobileMenu);
 
 // Shoping cart
 const navbarShoppingCart = document.querySelector(".navbar-shopping-cart");
-const shoppingCart = document.querySelector(".product-detail");
+const shoppingCart = document.querySelector("#shoppingCartContainer");
 navbarShoppingCart.addEventListener("click", toggleShoppingCart);
 
 const cardsContainer = document.querySelector(".cards-container");
