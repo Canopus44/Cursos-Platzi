@@ -11,5 +11,6 @@
     "ecmascript"
   ],
   "author": "Santiago Molina <canopus44@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "type": "module"
 }
